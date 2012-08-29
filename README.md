@@ -6,7 +6,7 @@ I'm a program that evaluates poker hands given a set of cards.
 
 ### Running from source
 
-To use this first get [Leiningen](https://github.com/technomancy/leiningen), and then execute:
+To compile and run from source, first get [Leiningen](https://github.com/technomancy/leiningen), and then execute:
 
      $ lein compile
      $ lein trampoline run
@@ -15,9 +15,13 @@ It's important to use trampoline since otherwise reading from STDIN doesn't work
 
 ### Running from binary
 
-Just run the jar file:
+To run the binary version, just run the jar file:
 
      $ java -jar target/poker-0.1.0-SNAPSHOT-standalone.jar
+
+To rebuild the binary get [Leiningen](https://github.com/technomancy/leiningen) and run:
+
+     $ lein uberjar
 
 ### Getting rankings
 
