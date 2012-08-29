@@ -6,7 +6,7 @@ I'm a program that evaluates poker hands given a set of cards.
 
 To use this first get [Leiningen](https://github.com/technomancy/leiningen), and then execute:
 
-   lein run
+     $ lein run
 
 Pass in any number of poker hands as STDIN into the program seperated by newlines, and the rank will be written to STDOUT. For example:
 
