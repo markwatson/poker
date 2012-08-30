@@ -98,7 +98,7 @@ Error: A hand must be 5 cards.")
 (defn two-pair?
   "Does the hand have two-pair in it?"
   [hand]
-  (>= (count (filter #(= % 2) (vals (rank-counts hand))))) 2)
+  (>= (count (filter #(= % 2) (vals (rank-counts hand)))) 2))
 
 (defn pair?
   "Does the hand have a pair in it?"
@@ -112,16 +112,16 @@ Error: A hand must be 5 cards.")
 
 ;; List of possible hands to check
 (def possible-hands
-  '(("Royal Flush" royal-flush?)
-    ("Straight Flush" straight-flush?)
-    ("Four of a Kind" four-of-a-kind?)
-    ("Full House" full-house?)
-    ("Flush" flush?)
-    ("Straight" straight?)
-    ("Three of a Kind" three-of-a-kind?)
-    ("Two Pair" two-pair?)
-    ("One Pair" pair?)
-    ("High Card" high-card?)))
+  [["Royal Flush" royal-flush?]
+   ["Straight Flush" straight-flush?]
+   ["Four of a Kind" four-of-a-kind?]
+   ["Full House" full-house?]
+   ["Flush" flush?]
+   ["Straight" straight?]
+   ["Three of a Kind" three-of-a-kind?]
+   ["Two Pair" two-pair?]
+   ["One Pair" pair?]
+   ["High Card" high-card?]])
 
 ;; Input parsing functions
 (defn card-type
@@ -134,8 +134,11 @@ Error: A hand must be 5 cards.")
 
 (defn rank-hand
   "Given a set of cards ranks the hand."
-  [cards]
-  cards)
+  [hand]
+  (loop [x (first possible-hands) tail (rest possible-hands)]
+    (if (or (empty? tail) (true? (apply (second x) [hand])))
+      (first x)
+      (recur (first tail) (rest tail)))))
 
 (defn parse-hand
   "Parses a hand string and returns the set of cards."
