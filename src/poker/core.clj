@@ -16,7 +16,7 @@ Error: A hand must be 5 cards.")
 
 (def intro-message "Enter poker hands followed by [RET] to evaluate.")
 
-;; Helpers
+;; General helpers
 (defn in-list
   "Checks if an item it in a list"
   [list item]
@@ -44,7 +44,7 @@ Error: A hand must be 5 cards.")
    (= card "j") 11
    :else (. Integer parseInt card)))
 
-;; Hand functions
+;; Hand checking functions
 (defn straight?
   "Is the hand a straight?"
   [hand]
